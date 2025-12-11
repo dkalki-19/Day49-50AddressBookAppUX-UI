@@ -24,3 +24,24 @@ address.addEventListener("input", () => {
 phone.addEventListener("input", () => {
   document.getElementById("phoneError").textContent = phoneValid(phone.value) ? "" : "Phone must be 10 digits or 12 digits (country code) or +12 digits.";
 });
+
+const form = document.getElementById("addressForm");
+
+form.addEventListener("reset", () => {
+  // Clear errors
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("addressError").textContent = "";
+  document.getElementById("phoneError").textContent = "";
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // perform validation before creating object
+  if (!nameValid(fullName.value)) { fullName.focus(); return; }
+  if (!addressValid(address.value)) { address.focus(); return; }
+  if (!phoneValid(phone.value)) { phone.focus(); return; }
+
+  // In UC6 we will create the object and save
+  // For now just console.log to verify:
+  console.log("Form validated. Ready to create object.");
+});
