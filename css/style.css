@@ -74,3 +74,43 @@ body {
 .cancel-icon:hover {
     opacity: 1
 }
+
+.address-form .row {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column
+}
+
+.address-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333
+}
+
+.address-form input,
+.address-form select,
+.address-form textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background: #fff;
+}
+
+.row-inline {
+    display: flex;
+    gap: 12px
+}
+
+.row-inline .col {
+    flex: 1;
+    display: flex;
+    flex-direction: column
+}
+
+.error {
+    color: #d32f2f;
+    font-size: 13px;
+    margin-top: 6px;
+    min-height: 18px
+}

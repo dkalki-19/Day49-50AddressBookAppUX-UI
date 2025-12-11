@@ -17,10 +17,52 @@
   <main class="main-content">
     <div class="form-container">
       <div class="form-box">
-        <div class="form-header-row">
-        <h2 class="form-title">Person Address Form</h2>
-        <img src="assets/adrsbook.png" alt="close" class="cancel-icon" id="cancelIcon">
+        <form id="addressForm" class="address-form" autocomplete="off">
+    <div class="row">
+        <label for="fullName">Full Name *</label>
+        <input id="fullName" name="fullName" type="text" required />
+        <div class="error" id="nameError"></div>
+    </div>
+
+    <div class="row">
+        <label for="address">Address *</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+        <div class="error" id="addressError"></div>
+    </div>
+
+    <div class="row">
+        <label for="phone">Phone *</label>
+        <input id="phone" name="phone" type="tel" required />
+        <div class="error" id="phoneError"></div>
+    </div>
+
+    <div class="row row-inline">
+        <div class="col">
+        <label for="city">City *</label>
+        <select id="city" required>
+            <option value="">Select</option>
+            <option>Chennai</option><option>Mumbai</option><option>Delhi</option>
+        </select>
         </div>
+        <div class="col">
+        <label for="state">State *</label>
+        <select id="state" required>
+            <option value="">Select</option>
+            <option>Tamil Nadu</option><option>Maharashtra</option>
+        </select>
+        </div>
+        <div class="col">
+        <label for="zip">Zip *</label>
+        <select id="zip" required>
+            <option value="">Select</option>
+            <option>600001</option><option>400001</option>
+        </select>
+        </div>
+  </div>
+
+  <!-- Submit/Reset buttons added in UC5 -->
+</form>
+
       </div>
     </div>
   </main>
