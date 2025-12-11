@@ -1,3 +1,5 @@
+import AddressBook from './AddressBook.js';
+
 // Validation rules and listeners
 const fullName = document.getElementById("fullName");
 const address = document.getElementById("address");
@@ -36,24 +38,10 @@ form.addEventListener("reset", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  // perform validation before creating object
-  if (!nameValid(fullName.value)) { fullName.focus(); return; }
-  if (!addressValid(address.value)) { address.focus(); return; }
-  if (!phoneValid(phone.value)) { phone.focus(); return; }
+  if (!nameValid(fullName.value) || !addressValid(address.value) || !phoneValid(phone.value)) return;
 
-  // In UC6 we will create the object and save
-  // For now just console.log to verify:
-  console.log("Form validated. Ready to create object.");
-});
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (!nameValid(fullName.value)) { fullName.focus(); return; }
-  if (!addressValid(address.value)) { address.focus(); return; }
-  if (!phoneValid(phone.value)) { phone.focus(); return; }
-
-  const contact = {
-    id: Date.now().toString(), // simple unique id
+  const raw = {
+    id: Date.now().toString(),
     name: fullName.value.trim(),
     address: address.value.trim(),
     phone: phone.value.trim(),
@@ -62,6 +50,13 @@ form.addEventListener("submit", (e) => {
     zip: document.getElementById("zip").value
   };
 
-  console.log("Contact object:", contact);
-  // Next: populate class (UC7), then save (UC8)
+  try {
+    const ab = new AddressBook(raw);   // will validate in setters
+    const list = JSON.parse(localStorage.getItem("AddressBookList")) || [];
+    list.push(ab.toJSON());
+    localStorage.setItem("AddressBookList", JSON.stringify(list));
+    window.location.href = "address_book_home.html";
+  } catch (err) {
+    alert("Validation error: " + err);
+  }
 });

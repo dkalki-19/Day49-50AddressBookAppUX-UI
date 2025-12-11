@@ -6,6 +6,7 @@
 <title>Address Book - Form</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <header class="main-header">
     <div class="header-inner">
@@ -17,61 +18,74 @@
   <main class="main-content">
     <div class="form-container">
       <div class="form-box">
+
+        <!-- ✅ FIXED: FORM START -->
         <form id="addressForm" class="address-form" autocomplete="off">
-    <div class="row">
-        <label for="fullName">Full Name *</label>
-        <input id="fullName" name="fullName" type="text" required />
-        <div class="error" id="nameError"></div>
-    </div>
 
-    <div class="row">
-        <label for="address">Address *</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
-        <div class="error" id="addressError"></div>
-    </div>
+          <div class="row">
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" name="fullName" type="text" required />
+            <div class="error" id="nameError"></div>
+          </div>
 
-    <div class="row">
-        <label for="phone">Phone *</label>
-        <input id="phone" name="phone" type="tel" required />
-        <div class="error" id="phoneError"></div>
-    </div>
+          <div class="row">
+            <label for="address">Address *</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+            <div class="error" id="addressError"></div>
+          </div>
 
-    <div class="row row-inline">
-        <div class="col">
-        <label for="city">City *</label>
-        <select id="city" required>
-            <option value="">Select</option>
-            <option>Chennai</option><option>Mumbai</option><option>Delhi</option>
-        </select>
-        </div>
-        <div class="col">
-        <label for="state">State *</label>
-        <select id="state" required>
-            <option value="">Select</option>
-            <option>Tamil Nadu</option><option>Maharashtra</option>
-        </select>
-        </div>
-        <div class="col">
-        <label for="zip">Zip *</label>
-        <select id="zip" required>
-            <option value="">Select</option>
-            <option>600001</option><option>400001</option>
-        </select>
+          <div class="row">
+            <label for="phone">Phone *</label>
+            <input id="phone" name="phone" type="tel" required />
+            <div class="error" id="phoneError"></div>
+          </div>
 
-        <div class="form-actions">
-        <button type="reset" class="btn btn-outline">Reset</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+          <div class="row row-inline">
 
-        </div>
-  </div>
+            <div class="col">
+              <label for="city">City *</label>
+              <select id="city" required>
+                <option value="">Select</option>
+                <option>Chennai</option>
+                <option>Mumbai</option>
+                <option>Delhi</option>
+              </select>
+            </div>
 
-  <!-- Submit/Reset buttons added in UC5 -->
-</form>
-    <script src="js/address_book_form.js"></script>
+            <div class="col">
+              <label for="state">State *</label>
+              <select id="state" required>
+                <option value="">Select</option>
+                <option>Tamil Nadu</option>
+                <option>Maharashtra</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label for="zip">Zip *</label>
+              <select id="zip" required>
+                <option value="">Select</option>
+                <option>600001</option>
+                <option>400001</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- ✅ FIXED: BUTTONS WERE INSIDE WRONG DIV -->
+          <div class="form-actions">
+            <button type="reset" class="btn btn-outline">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+        </form>
+        <!-- ✅ FIXED: FORM END -->
+
+        
 
       </div>
     </div>
   </main>
+  <script type="module" src="js/address_book_form.js"></script>
 </body>
 </html>
