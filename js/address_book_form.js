@@ -45,3 +45,23 @@ form.addEventListener("submit", (e) => {
   // For now just console.log to verify:
   console.log("Form validated. Ready to create object.");
 });
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (!nameValid(fullName.value)) { fullName.focus(); return; }
+  if (!addressValid(address.value)) { address.focus(); return; }
+  if (!phoneValid(phone.value)) { phone.focus(); return; }
+
+  const contact = {
+    id: Date.now().toString(), // simple unique id
+    name: fullName.value.trim(),
+    address: address.value.trim(),
+    phone: phone.value.trim(),
+    city: document.getElementById("city").value,
+    state: document.getElementById("state").value,
+    zip: document.getElementById("zip").value
+  };
+
+  console.log("Contact object:", contact);
+  // Next: populate class (UC7), then save (UC8)
+});
