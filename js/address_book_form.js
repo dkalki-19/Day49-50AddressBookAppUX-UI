@@ -1,5 +1,21 @@
 import AddressBook from './AddressBook.js';
 
+// document.getElementById("cancelIcon").addEventListener("click", () => {
+//   // confirm optional
+//   if (confirm("Discard and go back to home?")) window.location.href = "address_book_home.html";
+// });
+document.getElementById("cancelBtn").addEventListener("click", () => {
+    window.location.href = "address_book_home.html";
+});
+
+
+document.querySelector("button[type='reset']").addEventListener("click", () => {
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("addressError").textContent = "";
+  document.getElementById("phoneError").textContent = "";
+});
+
+
 // Validation rules and listeners
 const fullName = document.getElementById("fullName");
 const address = document.getElementById("address");
