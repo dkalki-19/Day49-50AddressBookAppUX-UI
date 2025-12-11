@@ -57,3 +57,20 @@ body {
     text-align: center;
     margin: 0 0 18px 0
 }
+
+.form-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.cancel-icon {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    opacity: .85
+}
+
+.cancel-icon:hover {
+    opacity: 1
+}
